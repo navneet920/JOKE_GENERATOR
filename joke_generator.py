@@ -1,5 +1,5 @@
 from dotenv import load_dotenv
-
+import streamlit as st
 from langchain_huggingface import HuggingFaceEndpoint,ChatHuggingFace
 from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
@@ -10,6 +10,7 @@ load_dotenv()
 llm = HuggingFaceEndpoint(
     repo_id="Qwen/Qwen2.5-7B-Instruct",
     task="text-generation",
+    huggingfacehub_api_token=st.secrets["HUGGINGFACEHUB_API_TOKEN"]
 )
 
 model=ChatHuggingFace(llm=llm)

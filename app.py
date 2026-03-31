@@ -3,6 +3,7 @@
 import streamlit as st
 from joke_generator import generate_jokes
 
+api_key = st.secrets["HUGGINGFACEHUB_API_TOKEN"]
 st.set_page_config(page_title="Joke App", page_icon="😂")
 
 st.title("😂 Smart Joke Generator")
